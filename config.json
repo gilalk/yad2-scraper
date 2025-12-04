@@ -3,16 +3,8 @@
   "chatId": null,
   "projects": [
     {
-      "topic": "RehovotForSale",
-      "url": "https://www.yad2.co.il/realestate/forsale?maxPrice=5000000&minRooms=5&maxRooms=5&property=5%2C39&topArea=41&area=12&city=8400&zoom=12"
-    },
-    {
-      "topic": "RehovotForRent",
-      "url": "https://www.yad2.co.il/realestate/rent?maxPrice=11000&minRooms=5&property=3%2C5%2C39&topArea=41&area=12&city=8400"
-    },
-    {
-      "topic": "MazkeretForRent",
-      "url": "https://www.yad2.co.il/realestate/rent?maxPrice=11000&minRooms=5&property=3%2C5%2C39&topArea=41&area=12&city=0028&zoom=13"
+      "topic": "NiroForSale",
+      "url": "https://www.yad2.co.il/vehicles/cars?manufacturer=48&model=10708&year=2021--1&km=-1-120000&engineType=2101&priceOnly=1&imgOnly=12"
     }
   ]
 }
