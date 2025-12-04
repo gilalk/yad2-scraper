@@ -1,6 +1,6 @@
 {
-  "telegramApiToken": null,
-  "chatId": null,
+  "telegramApiToken": GILCARTOKEN,
+  "chatId": GILCARCHATID,
   "projects": [
     {
       "topic": "NiroForSale",
