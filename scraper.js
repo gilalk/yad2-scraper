@@ -23,7 +23,7 @@ const types = {
 };
 
 const stages = {
-    [types.CARS]: ["div[class^=results-feed_feedListBox]", "div[class^=promotion-layout-no-footer_imageBox]", "div[class^=private-item-no-footer_box]"],
+    [types.CARS]: ["div[class^=results-feed_feedListBox]", "div[class^=promotion-layout-no-footer_imageBox]", "a[class^=private-item-no-footer_box]"],
     [types.NADLAN]: ["div[class^=map-feed_mapFeedBox]", "div[class^=item-image_itemImageBox]", "div[class^=item-layout_feedItemBox]"],
     [types.UNKNOWN]: []
 };
@@ -71,7 +71,7 @@ const scrapeItemsAndExtractImgUrls = async (url) => {
     const data = []
     $imageList.each((i, _) => {
         const imgSrc = $($imageList[i]).find("img").attr('src');
-        const lnkSrc = $($linkList[i]).find("a").attr('href');
+        const lnkSrc = $($linkList[i]).attr('href');
 
         if (imgSrc && lnkSrc && is_not_ad(imgSrc, lnkSrc)) {
             data.push({'img':imgSrc, 'lnk':  new URL(lnkSrc, url).href})
