@@ -23,7 +23,7 @@ const types = {
 };
 
 const stages = {
-    [types.CARS]: ["div[class^=results-feed_feedListBox]", "div[class^=feed-item-base_imageBox]", "div[class^=feed-item-base_feedItemBox]"],
+    [types.CARS]: ["div[class^=results-feed_feedListBox]", "div[class^=promotion-layout-no-footer_imageBox]", "div[class^=private-item-no-footer_box]"],
     [types.NADLAN]: ["div[class^=map-feed_mapFeedBox]", "div[class^=item-image_itemImageBox]", "div[class^=item-layout_feedItemBox]"],
     [types.UNKNOWN]: []
 };
