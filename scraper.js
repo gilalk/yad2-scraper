@@ -23,7 +23,7 @@ const types = {
 };
 
 const stages = {
-    [types.CARS]: ["div[class^=results-feed_feedListBox]", "div[class^=promotion-layout-no-footer_imageBox]", "a[class^=private-item-no-footer_box]"],
+    [types.CARS]: ["div[class^=results-feed_feedListBox]", "div[class*=promotion-layout][class*=imageBox]", "a[href*=item][class]:not([class*=look])"],
     [types.NADLAN]: ["div[class^=map-feed_mapFeedBox]", "div[class^=item-image_itemImageBox]", "div[class^=item-layout_feedItemBox]"],
     [types.UNKNOWN]: []
 };
@@ -49,9 +49,9 @@ const scrapeItemsAndExtractImgUrls = async (url) => {
     }
 
     let type = types.UNKNOWN;
-    if ($("div[class^=results-feed_feedListBox]").length != 0) {
+        if ($(stages[types.CARS][0]).length != 0) {
         type = types.CARS;
-    } else if ($("div[class^=map-feed_mapFeedBox]").length != 0) {
+        } else if ($(stages[types.NADLAN][0]).length != 0) {
         type = types.NADLAN;
     } else {
         throw new Error("Unknown type");
@@ -72,9 +72,10 @@ const scrapeItemsAndExtractImgUrls = async (url) => {
     $imageList.each((i, _) => {
         const imgSrc = $($imageList[i]).find("img").attr('src');
         const lnkSrc = $($linkList[i]).attr('href');
-
         if (imgSrc && lnkSrc && is_not_ad(imgSrc, lnkSrc)) {
             data.push({'img':imgSrc, 'lnk':  new URL(lnkSrc, url).href})
+              } else {
+            console.log(`Skipped on: ${imgSrc} - ${lnkSrc}`);
         }
     })
     return data;
